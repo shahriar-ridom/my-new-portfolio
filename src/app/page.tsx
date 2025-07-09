@@ -5,7 +5,7 @@ import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 
-const revalidate = 3600; // Revalidate every 1 hour
+const revalidate = 60; // Revalidate every 1 minute
 
 export default function Home() {
   return (
