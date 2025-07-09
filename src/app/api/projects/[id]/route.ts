@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { requireAuth, getAuthError } from '@/lib/middleware';
+import { revalidatePath } from 'next/dist/server/web/spec-extension/revalidate';
 
 export async function DELETE(
   request: NextRequest,
@@ -17,6 +18,8 @@ export async function DELETE(
     await prisma.project.delete({
       where: { id },
     });
+    revalidatePath('/');
+    revalidatePath('/projects');
 
     return NextResponse.json({ message: 'Project deleted successfully' });
   } catch (error) {
@@ -53,6 +56,8 @@ export async function PUT(
         tags,
       },
     });
+    revalidatePath('/');
+    revalidatePath('/projects');
 
     return NextResponse.json(project);
   } catch (error) {
