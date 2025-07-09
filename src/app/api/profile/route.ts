@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { requireAuth, getAuthError } from '@/lib/middleware';
+import { revalidatePath } from 'next/dist/server/web/spec-extension/revalidate';
 
 export async function GET() {
   try {
@@ -57,6 +58,7 @@ export async function POST(request: NextRequest) {
           twitterUrl,
         },
       });
+      revalidatePath('/');
     } else {
       // Create new profile
       profile = await prisma.myDetails.create({
@@ -73,6 +75,7 @@ export async function POST(request: NextRequest) {
           twitterUrl,
         },
       });
+      revalidatePath('/');
     }
 
     return NextResponse.json(profile);

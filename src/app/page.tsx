@@ -5,6 +5,8 @@ import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 
+export const revalidate = 3600; // 1 hour
+
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
