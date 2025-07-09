@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { prisma } from "./db";
 
 const getProjects = async () => {
@@ -6,6 +7,8 @@ const getProjects = async () => {
       createdAt: "desc",
     },
   });
+  revalidatePath("/projects");
+  revalidatePath("/");
   return projects;
 }
 export default getProjects;
