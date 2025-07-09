@@ -1,5 +1,5 @@
-# Firebase Studio
+# MY New Portfolio
 
-This is a NextJS starter in Firebase Studio.
+This is my new and updated Portfolio created Using Next.js, tailwindcss & Supabase. This is a fullstack App.
 
-To get started, take a look at src/app/page.tsx.
+Visit https://shahriardev.me to check the website.
