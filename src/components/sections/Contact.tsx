@@ -30,7 +30,7 @@ const Contact = async () => {
             </p>
             <div className="space-y-4">
               <a
-                href="mailto:hello@shahriarridom.dev"
+                href={`mailto:${email}`}
                 className="flex items-center gap-4 text-lg transition-colors hover:text-primary"
               >
                 <Mail className="h-6 w-6" />
